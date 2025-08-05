@@ -1,30 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>Leaflet Map with No City Markers</title>
-    <style>
-        html, body { width: 100%; height: 100%; margin: 0; padding: 0; }
-        #map { position: absolute; top: 0; bottom: 0; right: 0; left: 0; }
-    </style>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_74cf236161567a18cfe13d055f8e7054 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
 </head>
 <body>
-    <div id="map"></div>
-
-    <script>
-        // Initialize the map
-        const map = L.map('map').setView([20, 0], 2); // Default view
-
-        // Add OpenStreetMap tiles
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-
-        // No markers or cities are added here
-    </script>
+    
+    
+            <div class="folium-map" id="map_74cf236161567a18cfe13d055f8e7054" ></div>
+        
 </body>
+<script>
+    
+    
+            var map_74cf236161567a18cfe13d055f8e7054 = L.map(
+                "map_74cf236161567a18cfe13d055f8e7054",
+                {
+                    center: [55.3781, -3.436],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 2,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_780668f78dbdaea982d6b3ed4b685f90 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_780668f78dbdaea982d6b3ed4b685f90.addTo(map_74cf236161567a18cfe13d055f8e7054);
+        
+    
+            var marker_8962614fb04113a1f321a4099dee1635 = L.marker(
+                [35.0116, 135.7681],
+                {}
+            ).addTo(map_74cf236161567a18cfe13d055f8e7054);
+        
+    
+            var icon_a7742a9d47f18dd18f089bfb9b5fd7c4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "flag", "iconColor": "white", "markerColor": "darkred", "prefix": "glyphicon"}
+            );
+            marker_8962614fb04113a1f321a4099dee1635.setIcon(icon_a7742a9d47f18dd18f089bfb9b5fd7c4);
+        
+    
+        var popup_1563e4cb3c800c840df17589c0ad5582 = L.popup({"maxWidth": 200, "minWidth": 200});
+
+        
+            
+                var i_frame_83c07596a79e1d2a16ea93304894e550 = $(`<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8YSBocmVmPSJodHRwczovL3RoZXZlbHZldHBhcGVycy5jb20vY2F0ZWdvcnkvS3lvdG8iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgY29sb3I6ICNkMTQ7IAogICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7CiAgICAgICAgIj5LeW90bzwvYT4KICAgICAgICA=" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;"></iframe></div></div>`)[0];
+                popup_1563e4cb3c800c840df17589c0ad5582.setContent(i_frame_83c07596a79e1d2a16ea93304894e550);
+            
+        
+
+        marker_8962614fb04113a1f321a4099dee1635.bindPopup(popup_1563e4cb3c800c840df17589c0ad5582)
+        ;
+
+        
+    
+    
+            marker_8962614fb04113a1f321a4099dee1635.bindTooltip(
+                `<div>
+                     Kyoto
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
 </html>
